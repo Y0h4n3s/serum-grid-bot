@@ -1,0 +1,30 @@
+cargo-features = ["edition2021"]
+
+
+[package]
+name = "tradebotv3"
+version = "0.1.0"
+authors = ["Y0h4n3s"]
+edition = "2018"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+jsonrpsee-ws-client = "0.6.1"
+solana-client = "1.9.1"
+solana-program = "1.7.11"
+solana-account-decoder = "1.9.1"
+solana-sdk = "1.9.1"
+rust-base58 = "0.0.4"
+serum_dex = "0.5.0"
+spl-token = "3.2.0"
+borsh = "0.9.1"
+base64 = "0.13.0"
+num_enum = "0.5.4"
+solana-transaction-status = "1.9.2"
+chrono = "0.4.19"
+serde = "1.0.133"
+thiserror = "1.0.30"
+[dependencies.mongodb]
+version = "2.1.0"
+default-features = false
+features = ["sync"]
