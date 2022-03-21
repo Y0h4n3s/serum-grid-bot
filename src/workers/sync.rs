@@ -52,7 +52,7 @@ impl BotThread for SyncThread {
     fn setup(&mut self, connection: &RpcClient, serum_market: &Market, mongo_client: &MongoClient) {
         sleep(Duration::from_secs(30));
         let mut trader = self.get_updated_trader(mongo_client, &self.config.trader);
-        println!("{}", trader.to_string());
+        println!("[?] Trader In db: {}", trader.to_string());
         let open_orders_account_pubkey = str_to_pubkey(trader.serum_open_orders.get(0).unwrap());
         let open_orders_account = connection.get_account(&open_orders_account_pubkey).unwrap();
         let mut open_orders_account_clone = open_orders_account.clone();

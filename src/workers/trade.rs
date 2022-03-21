@@ -289,7 +289,7 @@ impl BotThread for TraderThread {
             return grid.status == GridStatus::Idle || grid.status == GridStatus::Violated;
         }).collect();
         let mut ixs: Vec<Instruction> = vec![];
-
+        println!("[?] Using Trader: {}", self.trader.to_string());
 
         if let Some(data) = &self.data {
             if let Some(price) = &data.last_price {
