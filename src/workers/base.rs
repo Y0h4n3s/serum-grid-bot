@@ -43,7 +43,7 @@ pub trait BotThread {
         let connection = solana_client::rpc_client::RpcClient::new_with_timeout_and_commitment(
             config.rpc_url.clone(),
             Duration::from_secs(10),
-            CommitmentConfig::finalized(),
+            CommitmentConfig::confirmed(),
         );
 
         let account = connection.get_account(&str_to_pubkey(&config.trader.market_address)).unwrap();
@@ -77,7 +77,7 @@ pub trait BotThread {
                 if let Ok(block_hash) = latest_block_hash {
                     println!("[?] Sending Transaction");
                     tx.sign(&[&config.fee_payer], block_hash);
-                    let sig1 = connection.send_and_confirm_transaction(&tx);
+                    let sig1 = connection.send_and_confirm_transaction_with_spinner_and_commitment(&tx, CommitmentConfig::confirmed());
 
                     match sig1 {
                         Ok(sig) => {
