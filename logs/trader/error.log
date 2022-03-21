@@ -1,0 +1,724 @@
+
+=================================================  2022-03-20 13:55:40.384823312 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 13:55:41.408628408 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 13:55:42.432488669 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 13:55:43.453683153 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 13:55:44.480236769 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 13:57:05.476499353 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 13:59:44.026562728 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 13:59:45.731100551 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 14:00:43.482003493 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 14:00:44.291490707 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 16:28:54.804016194 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 16:28:56.764327848 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 1: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program log: about to error rent not provided
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 189946 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13287 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 13287 compute units
+
+=================================================  2022-03-20 16:35:11.184242900 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 16:35:12.195809073 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 16:36:04.560553608 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 16:41:32.167960456 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 17:06:11.294645320 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 17:06:12.324522403 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 17:06:13.444498641 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 17:07:02.288771847 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 17:08:39.155836600 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 17:08:41.471604371 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 17:10:01.680284402 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 17:11:54.840437588 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 2: custom program error: 0x22
+Unknown Error: 34
+Program Logs
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190329 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 12904 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]
+Program log: Instruction: Transfer
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 2643 of 190204 compute units
+Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 13029 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe success
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe invoke [1]
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe consumed 4937 of 200000 compute units
+Program 73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe failed: custom program error: 0x22
+Consumed 25933 compute units
+
+=================================================  2022-03-20 21:39:04.338696533 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x1000761
+Unknown Error: 16779105
+Program Logs
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin invoke [1]
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin consumed 4366 of 200000 compute units
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin failed: custom program error: 0x1000761
+
+=================================================  2022-03-20 21:39:14.379558360 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x1000761
+Unknown Error: 16779105
+Program Logs
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin invoke [1]
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin consumed 4366 of 200000 compute units
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin failed: custom program error: 0x1000761
+
+=================================================  2022-03-20 21:44:58.327128426 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x1000761
+Unknown Error: 16779105
+Program Logs
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin invoke [1]
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin consumed 4366 of 200000 compute units
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin failed: custom program error: 0x1000761
+
+=================================================  2022-03-20 21:45:50.953088197 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x1000761
+Unknown Error: 16779105
+Program Logs
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin invoke [1]
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin consumed 4366 of 200000 compute units
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin failed: custom program error: 0x1000761
+
+=================================================  2022-03-20 21:45:58.732253505 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x1000761
+Unknown Error: 16779105
+Program Logs
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin invoke [1]
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin consumed 4366 of 200000 compute units
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin failed: custom program error: 0x1000761
+
+=================================================  2022-03-20 21:50:21.884084216 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x1000761
+Unknown Error: 16779105
+Program Logs
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin invoke [1]
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin consumed 4366 of 200000 compute units
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin failed: custom program error: 0x1000761
+
+=================================================  2022-03-20 21:52:12.221658153 +03:00   ===============================================
+
+Response Error
+Error Code -32002
+Message: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x1000761
+Unknown Error: 16779105
+Program Logs
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin invoke [1]
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin consumed 4366 of 200000 compute units
+Program 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin failed: custom program error: 0x1000761
+
+=================================================  2022-03-21 07:12:42.954483560 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 10:37:29.820245662 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 10:47:59.804636233 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 10:50:36.158544962 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 11:06:02.688276479 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 14:14:31.609519230 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 14:21:23.259109573 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 14:34:43.406031391 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 14:38:34.112039362 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 15:37:40.666474568 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 15:45:31.909491258 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 15:46:59.999097236 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 15:56:11.070726739 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 16:00:35.938881082 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 16:03:06.678328683 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 16:12:29.665602529 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 16:23:43.260253797 +03:00   ===============================================
+
+Reqwest Error
+reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("hedgehog.rpcpool.com")), port: None, path: "/", query: None, fragment: None }, source: TimedOut }
+
+=================================================  2022-03-21 17:06:20.951735905 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
+
+=================================================  2022-03-21 17:11:38.576451667 +03:00   ===============================================
+
+User for me: "unable to confirm transaction. This can happen in situations such as transaction expiration and insufficient fee-payer funds"
+
