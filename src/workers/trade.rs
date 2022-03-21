@@ -33,7 +33,7 @@ use crate::workers::base::{BotConfig, BotThread};
 use crate::workers::error::TradeBotResult;
 use crate::workers::message::{ThreadMessage, ThreadMessageCompiler, ThreadMessageSource};
 
-const MAX_NEW_ORDER_IXS: usize = 5;
+const MAX_NEW_ORDER_IXS: usize = 10;
 const CLIENT_ORDER_ID: u64 = 66935256;
 
 pub struct Price {
