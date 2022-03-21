@@ -105,7 +105,7 @@ impl BotThread for TraderThread {
 
         let bids_account_pubkey = self.bytes_to_pubkey(&serum_market.bids);
         let asks_account_pubkey = self.bytes_to_pubkey(&serum_market.asks);
-        let open_orders_account_pubkey = str_to_pubkey(self.trader.serum_open_orders.get(0).unwrap());
+        let open_orders_account_pubkey = str_to_pubkey(trader.serum_open_orders.get(0).unwrap());
 
         let bids_account = connection.get_account(&bids_account_pubkey).unwrap();
         let mut bids_account_clone = bids_account.clone();
@@ -165,7 +165,7 @@ impl BotThread for TraderThread {
         let mut my_orders = vec![my_bids, my_asks];
         let mut my_orders_flat: Vec<Order> = my_orders.into_iter().flatten().collect::<Vec<Order>>();
 
-        let awaiting_grids: Vec<GridPosition> = self.trader.grids.clone().into_iter().filter(|grid| grid.status == GridStatus::AwaitingBuy || grid.status == GridStatus::AwaitingSell).collect();
+        let awaiting_grids: Vec<GridPosition> = trader.grids.clone().into_iter().filter(|grid| grid.status == GridStatus::AwaitingBuy || grid.status == GridStatus::AwaitingSell).collect();
 
         for grid in awaiting_grids {
             let open_order = my_orders_flat
@@ -188,6 +188,13 @@ impl BotThread for TraderThread {
 
                     }
                 }
+            }
+        }
+
+        // reassign false violations
+        for (grid, index) in trader.grids.clone().into_iter().zip(0..trader.grids.clone().len()) {
+            if grid.order.is_none() {
+                trader.grids.get_mut(index).unwrap().status = GridStatus::Idle
             }
         }
 
