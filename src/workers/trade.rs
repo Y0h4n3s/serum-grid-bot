@@ -181,7 +181,12 @@ impl BotThread for TraderThread {
                     .into_iter()
                     .find_position(|order| grid.price == order.price);
                 if let Some((grid_index, mut grid)) = grid_order {
-                    trader.grids.get_mut(grid_index).unwrap().status = GridStatus::Violated;
+                    if grid.order.is_some() {
+                        trader.grids.get_mut(grid_index).unwrap().status = GridStatus::Violated;
+                    } else {
+                        trader.grids.get_mut(grid_index).unwrap().status = GridStatus::Idle;
+
+                    }
                 }
             }
         }
@@ -396,7 +401,6 @@ impl BotThread for TraderThread {
                                                 // place sell order for previous closed order
                                                 let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
                                                 let base_size_lots = base_size / serum_market.coin_lot_size;
-                                                let quote_size_lots = base_size_lots * serum_market.pc_lot_size * next_grid.price;
                                                 let new_order_ix = self.make_new_order_ix(serum_market, &self.trader, Side::Ask, next_grid.price, base_size_lots);
                                                 ixs.push(new_order_ix);
                                                 sell_indexes.push(grid_index-1);
