@@ -352,10 +352,9 @@ impl BotThread for TraderThread {
                             let mut sell_indexes: Vec<usize> = vec![];
                             if let Some(order) = grid_position.clone().order {
                                 if let Some((grid_index, mut grid)) = grid_order {
-                                    let base_size = (self.trader.amount_per_grid / grid_position.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
-                                    let base_size_lots = base_size / serum_market.coin_lot_size;
-                                    let quote_size_lots = base_size_lots * serum_market.pc_lot_size * grid_position.price;
+
                                 match order.side {
+                                    // TODO: recalculate size
                                     Side::Ask  => {
 
                                             if  grid_index == 0 {
@@ -364,6 +363,9 @@ impl BotThread for TraderThread {
                                             }
                                             if let Some(next_grid) = self.trader.grids.get(grid_index + 1) {
                                                 if next_grid.status == GridStatus::Violated {
+                                                    let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
+                                                    let base_size_lots = base_size / serum_market.coin_lot_size;
+                                                    let quote_size_lots = base_size_lots * serum_market.pc_lot_size * next_grid.price;
                                                     // place buy order for previous closed order
                                                     let new_order_ix = self.make_new_order_ix(serum_market, &self.trader, Side::Bid, next_grid.price, quote_size_lots);
                                                     ixs.push(new_order_ix);
@@ -392,6 +394,9 @@ impl BotThread for TraderThread {
                                         if let Some(next_grid) = self.trader.grids.get(grid_index  - 1) {
                                             if next_grid.status == GridStatus::Violated {
                                                 // place sell order for previous closed order
+                                                let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
+                                                let base_size_lots = base_size / serum_market.coin_lot_size;
+                                                let quote_size_lots = base_size_lots * serum_market.pc_lot_size * next_grid.price;
                                                 let new_order_ix = self.make_new_order_ix(serum_market, &self.trader, Side::Ask, next_grid.price, base_size_lots);
                                                 ixs.push(new_order_ix);
                                                 sell_indexes.push(grid_index-1);
