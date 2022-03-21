@@ -1,3 +1,4 @@
 /target
 owner.json
 /logs
+Cargo.lock

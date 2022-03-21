@@ -8,7 +8,7 @@ use solana_client::rpc_response::RpcSimulateTransactionResult;
 use solana_program::instruction::InstructionError;
 use solana_sdk::signature::Signature;
 use solana_sdk::transaction::TransactionError;
-use solana_transaction_status::EncodedConfirmedTransaction;
+use solana_transaction_status::EncodedTransaction;
 
 use crate::workers::base::BotThread;
 
@@ -186,27 +186,17 @@ pub trait ThreadMessageCompiler: BotThread {
                 RpcTransactionConfig {
                     encoding: None,
                     commitment: None,
+                    max_supported_transaction_version: None
                 },
             );
         if let Ok(tx) = tx_result {
-        match tx {
-            EncodedConfirmedTransaction {
-                slot: _,
-                transaction,
-                block_time: _,
-            } => match transaction.meta {
-                None => {}
-                Some(meta) => {
-                    if let Some(program_logs) = meta.log_messages {
-                        logs.push_str("Program Logs\n");
 
-                        for log in program_logs {
+                    if let Some(meta) = tx.transaction.meta {
+                        logs.push_str("Program Logs\n");
+                        meta.log_messages.unwrap().into_iter().map(| log | {
                             logs.push_str(&log);
                             logs.push_str("\n")
-                        }
-                    }
-                }
-            },
+                        });
         }
         } else {
             level = ThreadLogLevel::Error;

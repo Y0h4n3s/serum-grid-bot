@@ -1,8 +1,4 @@
-#[derive(Debug, Clone, Copy)]
-pub enum Side {
-    Bid = 0,
-    Ask = 1,
-}
+use serum_dex::matching::Side;
 
 #[derive(Debug, Clone, Copy)]
 pub struct Order {
@@ -12,3 +8,4 @@ pub struct Order {
     pub owner: [u64; 4],
     pub order_id: u128,
 }
+

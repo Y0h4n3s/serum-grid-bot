@@ -9,13 +9,14 @@ use solana_sdk::signature::Keypair;
 use crate::mongodb::client::MongoClient;
 use crate::workers::base::{BotConfig, BotThread};
 use crate::workers::message::{ThreadLogLevel, ThreadMessage, ThreadMessageKind, ThreadMessageSource};
-use crate::workers::trade::TraderThread;
+use crate::workers::sync::SyncThread;
+use crate::workers::trade::{TraderData, TraderThread};
 
 pub mod workers;
 pub mod mongodb;
 pub mod serum;
 
-const RPC_URL: &str = "https://mango.devnet.rpcpool.com";
+const RPC_URL: &str = "https://hedgehog.rpcpool.com"; //"https://mango.devnet.rpcpool.com";
 fn main() {
 
 
@@ -28,9 +29,8 @@ fn main() {
     for trader_result in registered_traders_cursor {
         match trader_result {
             Ok(trader) => {
-                println!("{:?}", trader);
                 let payer = Keypair::from_base58_string(&trader.trader_keypair);
-                let serum_program: Pubkey = str_to_pubkey("73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe");
+                let serum_program: Pubkey = str_to_pubkey("9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin"/*"73A1rYyFwTpRzEsGjJc1P45ee7qMo8vXuMZUDC42Wzwe"*/);
                 let market: Pubkey = str_to_pubkey(&trader.market_address);
                 let token_program: Pubkey = str_to_pubkey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA");
                 let spl_associated_token_account_program_id: Pubkey = str_to_pubkey(
@@ -40,15 +40,17 @@ fn main() {
                     serum_program,
                     token_program,
                     associated_token_program: spl_associated_token_account_program_id,
-                    trader,
+                    trader: trader.clone(),
                     rpc_url: RPC_URL.to_string(),
                     fee_payer: payer,
                 };
                 let safe_bot_config = Arc::new(bot_config);
                 let _trader_thread_message_tx = thread_message_tx.clone();
-                let trader = TraderThread {
+                let mut trader = TraderThread {
                     stdout: _trader_thread_message_tx,
                     config: safe_bot_config.clone(),
+                    data:None,
+                    trader: trader.clone()
                 };
                 let _trader_thread = std::thread::spawn(move || trader.worker());
 
@@ -59,12 +61,12 @@ fn main() {
                 // };
                 // let _settle_thread = std::thread::spawn(move || settler.worker());
 
-                // let sync_thread_message_tx = thread_message_tx.clone();
-                // let sync = SyncThread {
-                //     stdout: sync_thread_message_tx,
-                //     config: safe_bot_config.clone(),
-                // };
-                // let _sync_thread = std::thread::spawn(move || sync.worker());
+                let sync_thread_message_tx = thread_message_tx.clone();
+                let mut sync = SyncThread {
+                    stdout: sync_thread_message_tx,
+                    config: safe_bot_config.clone(),
+                };
+                let _sync_thread = std::thread::spawn(move || sync.worker());
 
 
             }
