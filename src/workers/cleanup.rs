@@ -100,8 +100,9 @@ impl BotThread for CleanupThread {
             );
 
         if let Ok(open_orders) = open_orders_result {
-            for mut i in 0..min(open_orders.orders.len(), MAX_IXS) {
-                let order = open_orders.orders.get(i).unwrap();
+            let non_zero_orders = open_orders.orders.into_iter().filter(|o| **o != (0 as u128)).collect::<Vec<&u128>>();
+            for mut i in 0..min(non_zero_orders.len(), MAX_IXS) {
+                let order = non_zero_orders.get(i).unwrap();
                 let grid_order = trader.grids.clone()
                     .clone()
                     .into_iter()
@@ -127,7 +128,7 @@ impl BotThread for CleanupThread {
                         &self.config.fee_payer.pubkey(),
                         &self.bytes_to_pubkey(&serum_market.event_q),
                         go.order.unwrap().side,
-                        *order
+                        **order
                     ).unwrap();
 
                     ixs.push(match_ix.clone());
