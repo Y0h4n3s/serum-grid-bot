@@ -257,6 +257,9 @@ impl BotThread for TraderThread {
     }
 
     fn cleanup(&mut self, connection: &RpcClient, serum_market: &Market, mongo_client: &MongoClient) {
+        if self.trader.status == TraderStatus::Decommissioned || self.trader.status == TraderStatus::Stopped {
+            return
+        }
         let trader_bson = to_bson(&self.trader.clone()).unwrap();
         let trader_document = trader_bson.as_document().unwrap().to_owned();
         let update_result = mongo_client.traders.find_one_and_update(
