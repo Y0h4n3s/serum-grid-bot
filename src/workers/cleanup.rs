@@ -107,7 +107,7 @@ impl BotThread for CleanupThread {
                     .into_iter()
                     .find_position(|grid| grid.order.is_some() && grid.order.as_ref().unwrap().order_id == order.to_string());
                 if let Some((grid_index, go)) = grid_order {
-                    let match_ix1 = serum_dex::instruction::match_orders(
+                    let match_ix = serum_dex::instruction::match_orders(
                         &self.config.serum_program,
                         &str_to_pubkey(&trader.market_address),
                         &self.bytes_to_pubkey(&serum_market.req_q),
@@ -130,9 +130,9 @@ impl BotThread for CleanupThread {
                         *order
                     ).unwrap();
 
-                    ixs.push(match_ix);
-                    ixs.push(cancel_ix);
                     ixs.push(match_ix.clone());
+                    ixs.push(cancel_ix);
+                    ixs.push(match_ix);
                     i += 2;
                 }
             }
