@@ -382,10 +382,21 @@ impl BotThread for TraderThread {
                                                 continue
                                             }
                                             if let Some(next_grid) = self.trader.grids.get(grid_index + 1) {
+
+                                                // i'm never going to understand why i did this but it makes sense now
+                                                // only covered for one strike TODO: find an efficient algorithm to detect reversals
+                                                if let Some(next_next_grid) = self.trader.grids.get(grid_index + 2) {
+                                                    if next_next_grid.status == GridStatus::Violated && next_next_grid.order.is_some() && next_next_grid.order.as_ref().unwrap().side == Side::Bid {
+                                                        if price.sell > next_next_grid.price {
+                                                            continue
+                                                        }
+                                                    }
+                                                }
+                                                let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
+                                                let base_size_lots = base_size / serum_market.coin_lot_size;
+                                                let quote_size_lots = base_size_lots * serum_market.pc_lot_size * next_grid.price;
                                                 if next_grid.status == GridStatus::Violated {
-                                                    let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
-                                                    let base_size_lots = base_size / serum_market.coin_lot_size;
-                                                    let quote_size_lots = base_size_lots * serum_market.pc_lot_size * next_grid.price;
+
                                                     // place buy order for previous closed order
                                                     let new_order_ix = self.make_new_order_ix(serum_market, &self.trader, Side::Bid, next_grid.price, quote_size_lots);
                                                     ixs.push(new_order_ix);
@@ -400,8 +411,29 @@ impl BotThread for TraderThread {
 
                                                     })
                                                 } else {
-                                                    println!("[-] Next grid is still awaiting filling, skipping buy");
+                                                    let quote_size_lots = base_size_lots * serum_market.pc_lot_size * grid_position.price;
 
+                                                    if let Some(prev_grid) = self.trader.grids.get(grid_index - 1) {
+                                                        if next_grid.order.is_some() && prev_grid.order.is_some() && next_grid.order.as_ref().unwrap().side == prev_grid.order.as_ref().unwrap().side {
+                                                            let new_order_ix = self.make_new_order_ix(serum_market, &self.trader, Side::Bid, grid_position.price, quote_size_lots);
+                                                            ixs.push(new_order_ix);
+                                                            buy_indexes.push(grid_index);
+                                                            self.trader.grids.get_mut(grid_index ).unwrap().order = Some(OrderDb {
+                                                                price: grid_position.price,
+                                                                side: Side::Bid,
+                                                                client_order_id: CLIENT_ORDER_ID,
+                                                                is_filled: false,
+                                                                owner: "".to_string(),
+                                                                order_id: "".to_string()
+
+                                                            })
+                                                        } else {
+                                                            println!("[-] Unknowable anomaly");
+
+                                                        }
+                                                    } else {
+                                                        println!("[-] Next grid is still awaiting filling, skipping buy");
+                                                    }
                                                 }
                                             }
 
@@ -413,11 +445,20 @@ impl BotThread for TraderThread {
                                                 println!("[-] I don't know how this happened, should have never happened");
                                                 continue
                                             }
+
+                                        if let Some(next_next_grid) = self.trader.grids.get(grid_index - 2) {
+                                            if next_next_grid.status == GridStatus::Violated && next_next_grid.order.is_some() && next_next_grid.order.as_ref().unwrap().side == Side::Ask {
+                                                if price.buy < next_next_grid.price {
+                                                    continue
+                                                }
+                                            }
+                                        }
                                         if let Some(next_grid) = self.trader.grids.get(grid_index  - 1) {
+                                            let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
+                                            let base_size_lots = base_size / serum_market.coin_lot_size;
                                             if next_grid.status == GridStatus::Violated {
                                                 // place sell order for previous closed order
-                                                let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
-                                                let base_size_lots = base_size / serum_market.coin_lot_size;
+
                                                 let new_order_ix = self.make_new_order_ix(serum_market, &self.trader, Side::Ask, next_grid.price, base_size_lots);
                                                 ixs.push(new_order_ix);
                                                 sell_indexes.push(grid_index-1);
@@ -432,8 +473,26 @@ impl BotThread for TraderThread {
                                                 })
                                             }
                                             else {
-                                                println!("[-] Next grid is still awaiting filling, skipping sell");
+                                                if let Some(prev_grid) = self.trader.grids.get(grid_index + 1) {
+                                                    if next_grid.order.is_some() && prev_grid.order.is_some() && next_grid.order.as_ref().unwrap().side == prev_grid.order.as_ref().unwrap().side {
+                                                        let new_order_ix = self.make_new_order_ix(serum_market, &self.trader, Side::Ask, grid_position.price, base_size_lots);
+                                                        ixs.push(new_order_ix);
+                                                        sell_indexes.push(grid_index);
+                                                        self.trader.grids.get_mut(grid_index).unwrap().order = Some(OrderDb {
+                                                            price: grid_position.price,
+                                                            side: Side::Ask,
+                                                            client_order_id: CLIENT_ORDER_ID,
+                                                            is_filled: false,
+                                                            owner: "".to_string(),
+                                                            order_id: "".to_string()
 
+                                                        })
+                                                    } else {
+                                                        println!("[-] Unknowable anomaly");
+                                                    }
+                                                } else {
+                                                    println!("[-] Next grid is still awaiting filling, skipping sell");
+                                                }
                                             }
                                         }
 

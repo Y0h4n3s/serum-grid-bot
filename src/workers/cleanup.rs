@@ -100,7 +100,7 @@ impl BotThread for CleanupThread {
             );
 
         if let Ok(open_orders) = open_orders_result {
-            let non_zero_orders = open_orders.orders.into_iter().filter(|o| **o != (0 as u128)).collect::<Vec<&u128>>();
+            let non_zero_orders = open_orders.orders.into_iter().filter(|o| **o != 0 as u128).collect::<Vec<&u128>>();
             for mut i in 0..min(non_zero_orders.len(), MAX_IXS) {
                 let order = non_zero_orders.get(i).unwrap();
                 let grid_order = trader.grids.clone()
