@@ -260,15 +260,14 @@ impl BotThread for TraderThread {
         if self.trader.status == TraderStatus::Decommissioned || self.trader.status == TraderStatus::Stopped {
             return
         }
-        let trader_bson = to_bson(&self.trader.clone().grids).unwrap();
-        let trader_update_document = trader_bson.as_document().unwrap().to_owned();
+        let trader_update_bson = to_bson(&self.trader.clone().grids).unwrap();
         let update_result = mongo_client.traders.find_one_and_update(
             doc! {
             "market_address": self.trader.market_address.clone(),
             "owner": self.trader.owner.clone(),
         }, UpdateModifications::Document(doc! {
                 "$set": {
-                    "grids": trader_update_document
+                    "grids": trader_update_bson
                 }
             }),
             None
