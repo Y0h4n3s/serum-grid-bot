@@ -6,7 +6,7 @@ use std::rc::Rc;
 use std::sync::Arc;
 use std::sync::mpsc::Sender;
 use std::thread::sleep;
-use std::time::Duration;
+use std::time::{Duration, Instant};
 use mongodb::bson::doc;
 use serum_dex::critbit::{Slab, SlabView};
 use serum_dex::matching::Side;
@@ -79,8 +79,8 @@ pub trait BotThread {
                     println!("[?] Sending Transaction");
                     tx.sign(&[&config.fee_payer], block_hash);
                     const SEND_RETRIES: usize = 3;
-                    const GET_STATUS_RETRIES: usize = 10;
-
+                    const GET_STATUS_RETRIES: usize = 20;
+                    let now = Instant::now();
                     'sending: for _ in 0..SEND_RETRIES {
                         let sig = connection.send_transaction(&tx);
                         if let Ok(signature) = sig {
@@ -111,6 +111,7 @@ pub trait BotThread {
                                             sleep(Duration::from_millis(1000));
                                             Err(None)
                                         } else {
+                                            println!("[?] Transaction not confirmed in {} seconds skipping", now.elapsed().as_secs());
                                             break 'confirmation;
                                         }
                                     }
