@@ -28,7 +28,7 @@ use solana_sdk::signature::{Signature, Signer};
 use crate::mongodb::client::MongoClient;
 use crate::mongodb::models::{GridPosition, GridStatus, Order as OrderDb, Trader};
 use crate::serum::state::Order;
-use crate::str_to_pubkey;
+use crate::{str_to_pubkey, TraderStatus};
 use crate::workers::base::{BotConfig, BotThread};
 use crate::workers::error::TradeBotResult;
 use crate::workers::message::{ThreadMessage, ThreadMessageCompiler, ThreadMessageSource};
@@ -53,14 +53,7 @@ pub struct TraderThread {
 }
 
 impl TraderThread {
-    fn get_updated_trader(&self, mongo_client: &MongoClient, trader: &Trader) -> Trader {
-        let trader_cursor = mongo_client.traders.find_one(doc! {
-            "market_address": trader.market_address.clone(),
-            "owner": trader.owner.clone(),
-        }, None).unwrap();
 
-        trader_cursor.unwrap()
-    }
 
     fn make_new_order_ix(&self, serum_market: &Market, trader: &Trader, side: Side, price: u64, qty: u64) -> Instruction{
         serum_dex::instruction::new_order(
@@ -99,6 +92,9 @@ pub enum Movement {
 }
 impl BotThread for TraderThread {
     fn setup(&mut self, connection: &RpcClient, serum_market: &Market, mongo_client: &MongoClient) {
+        if self.trader.status == TraderStatus::Decommissioned || self.trader.status == TraderStatus::Stopped {
+            return
+        }
         let config = self.get_config();
         let mut trader = self.get_updated_trader(mongo_client, &config.trader);
 
@@ -221,7 +217,8 @@ impl BotThread for TraderThread {
                         client_order_id: order.client_id,
                         is_filled: false,
                         owner: self.bytes_to_pubkey(&order.owner).to_string(),
-                       // order_id: order.order_id,
+                        order_id: order.order_id.to_string(),
+
                     });
                 } else {
                     println!("Unknown order")
@@ -292,6 +289,10 @@ impl BotThread for TraderThread {
 
 
     fn compile_ixs(&mut self, connection: &RpcClient, serum_market: &Market, mongo_client: &MongoClient) -> Vec<Instruction> {
+        if self.trader.status == TraderStatus::Decommissioned || self.trader.status == TraderStatus::Stopped {
+            return vec![]
+        }
+
         let mut idleGrids: Vec<GridPosition> = self.trader.grids.clone().into_iter().filter(|grid| {
             return grid.status == GridStatus::Idle || grid.status == GridStatus::Violated;
         }).collect();
@@ -331,7 +332,9 @@ impl BotThread for TraderThread {
                                         side: Side::Bid,
                                         client_order_id: CLIENT_ORDER_ID,
                                         is_filled: false,
-                                        owner: "".to_string()
+                                        owner: "".to_string(),
+                                        order_id: "".to_string()
+
                                     })
                                 }
                             } else {
@@ -350,7 +353,8 @@ impl BotThread for TraderThread {
                                         side: Side::Ask,
                                         client_order_id: CLIENT_ORDER_ID,
                                         is_filled: false,
-                                        owner: "".to_string()
+                                        owner: "".to_string(),
+                                        order_id: "".to_string()
                                     })
                                 }
                             }
@@ -387,7 +391,9 @@ impl BotThread for TraderThread {
                                                         side: Side::Bid,
                                                         client_order_id: CLIENT_ORDER_ID,
                                                         is_filled: false,
-                                                        owner: "".to_string()
+                                                        owner: "".to_string(),
+                                                        order_id: "".to_string()
+
                                                     })
                                                 } else {
                                                     println!("[-] Next grid is still awaiting filling, skipping buy");
@@ -416,7 +422,9 @@ impl BotThread for TraderThread {
                                                     side: Side::Ask,
                                                     client_order_id: CLIENT_ORDER_ID,
                                                     is_filled: false,
-                                                    owner: "".to_string()
+                                                    owner: "".to_string(),
+                                                    order_id: "".to_string()
+
                                                 })
                                             }
                                             else {

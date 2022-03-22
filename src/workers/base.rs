@@ -26,7 +26,7 @@ use solana_sdk::account::ReadableAccount;
 use solana_sdk::commitment_config::CommitmentConfig;
 use solana_sdk::signature::{Keypair, Signature};
 use solana_sdk::signature::{Signer};
-use solana_sdk::transaction::Transaction;
+use solana_sdk::transaction::{Transaction, TransactionError, uses_durable_nonce};
 
 
 use crate::mongodb::client::{MongoClient};
@@ -77,22 +77,68 @@ pub trait BotThread {
                 if let Ok(block_hash) = latest_block_hash {
                     println!("[?] Sending Transaction");
                     tx.sign(&[&config.fee_payer], block_hash);
-                    let sig1 = connection.send_and_confirm_transaction_with_spinner_and_commitment(&tx, CommitmentConfig::confirmed());
+                    const SEND_RETRIES: usize = 3;
+                    const GET_STATUS_RETRIES: usize = 10;
 
-                    match sig1 {
-                        Ok(sig) => {
-                            println!("[+] Transaction Successful: {:?}", sig);
-                            self.cleanup(&connection, &serum_market, &mongo_client);
+                    'sending: for _ in 0..SEND_RETRIES {
+                        let sig = connection.send_transaction(&tx);
+                        if let Ok(signature) = sig {
+                            let recent_blockhash = if uses_durable_nonce(&tx).is_some() {
+                                let (recent_blockhash, ..) = connection
+                                    .get_latest_blockhash_with_commitment(CommitmentConfig::processed())
+                                    .unwrap();
+                                recent_blockhash
+                            } else {
+                                block_hash
+                            };
 
-                        }
-                        Err(e) => {
-                            eprintln!("[-] An Error Occurred: {:?}", e )
+                            'confirmation: for status_retry in 0..usize::MAX {
+                                let result: Result<Signature, Option<TransactionError>> =
+                                    match connection.get_signature_status_with_commitment(&signature, CommitmentConfig::confirmed()).unwrap() {
+                                    Some(Ok(_)) => Ok(signature),
+                                    Some(Err(e)) => Err(Some(e.into())),
+                                    None => {
+                                        if !connection
+                                            .is_blockhash_valid(&recent_blockhash, CommitmentConfig::processed())
+                                            .unwrap()
+                                        {
+                                            // Block hash is not found by some reason
+                                            break 'sending;
+                                        } else if status_retry < GET_STATUS_RETRIES
+                                        {
+                                            // Retry in a second
+                                            sleep(Duration::from_millis(1000));
+                                            Err(None)
+                                        } else {
+                                            break 'confirmation;
+                                        }
+                                    }
+                                };
+                                match result {
+                                    Ok(signature) => {
+                                        println!("[+] Transaction Successful: {:?}", sig);
+                                        self.cleanup(&connection, &serum_market, &mongo_client);
+                                        break 'sending
+                                    }
+                                    Err(None) => {
+                                        eprintln!("[-] Failed to confirm transaction retrying...");
+                                        continue
+                                    }
+                                    Err (e) => {
+                                        eprintln!("[-] Transaction Failed: {:?}", e );
+                                        break 'confirmation
 
+                                    }
+                                }
+                            }
+                        } else {
+                            eprintln!("[-] An Error Occurred While sending tx: {:?}", sig.unwrap_err() );
+                            continue
                         }
                     }
+
                 } else {
                     eprintln!("[-] An Error Occurred: {:?}", latest_block_hash.unwrap_err());
-
                 }
             } else {
                 self.cleanup(&connection, &serum_market, &mongo_client);
@@ -100,6 +146,14 @@ pub trait BotThread {
         }
     }
 
+    fn get_updated_trader(&self, mongo_client: &MongoClient, trader: &Trader) -> Trader {
+        let trader_cursor = mongo_client.traders.find_one(doc! {
+            "market_address": trader.market_address.clone(),
+            "owner": trader.owner.clone(),
+        }, None).unwrap();
+
+        trader_cursor.unwrap()
+    }
     fn send_message(&self, mes: ThreadMessage) {
         match self.get_stdout().send(mes) {
             Ok(_) => {}

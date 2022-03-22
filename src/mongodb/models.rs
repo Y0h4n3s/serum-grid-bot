@@ -55,10 +55,10 @@ pub struct Order {
     pub client_order_id: u64,
     pub is_filled: bool,
     pub owner: String,
-    //pub order_id: u128
+    pub order_id: String
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub enum TraderStatus {
     Registered,
     Initialized,

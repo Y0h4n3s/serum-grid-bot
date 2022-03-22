@@ -7,7 +7,9 @@ use rust_base58::FromBase58;
 use solana_program::pubkey::Pubkey;
 use solana_sdk::signature::Keypair;
 use crate::mongodb::client::MongoClient;
+use crate::mongodb::models::TraderStatus;
 use crate::workers::base::{BotConfig, BotThread};
+use crate::workers::cleanup::CleanupThread;
 use crate::workers::message::{ThreadLogLevel, ThreadMessage, ThreadMessageKind, ThreadMessageSource};
 use crate::workers::sync::SyncThread;
 use crate::workers::trade::{TraderData, TraderThread};
@@ -45,14 +47,37 @@ fn main() {
                     fee_payer: payer,
                 };
                 let safe_bot_config = Arc::new(bot_config);
-                let _trader_thread_message_tx = thread_message_tx.clone();
-                let mut trader = TraderThread {
-                    stdout: _trader_thread_message_tx,
-                    config: safe_bot_config.clone(),
-                    data:None,
-                    trader: trader.clone()
-                };
-                let _trader_thread = std::thread::spawn(move || trader.worker());
+
+                match trader.status {
+                    TraderStatus::Registered | TraderStatus::Initialized => {
+                        let _trader_thread_message_tx = thread_message_tx.clone();
+                        let mut trader = TraderThread {
+                            stdout: _trader_thread_message_tx,
+                            config: safe_bot_config.clone(),
+                            data:None,
+                            trader: trader.clone()
+                        };
+                        let _trader_thread = std::thread::spawn(move || trader.worker());
+                        let sync_thread_message_tx = thread_message_tx.clone();
+                        let mut sync = SyncThread {
+                            stdout: sync_thread_message_tx,
+                            config: safe_bot_config.clone(),
+                        };
+                        let _sync_thread = std::thread::spawn(move || sync.worker());
+
+                    }
+                    TraderStatus::Decommissioned | TraderStatus::Stopped => {
+
+                        let cleanup_thread_message_tx = thread_message_tx.clone();
+                        let mut clean_up = CleanupThread {
+                            stdout: cleanup_thread_message_tx,
+                            config: safe_bot_config.clone(),
+                        };
+                        let _cleanup_thread = std::thread::spawn(move || clean_up.worker());
+
+                    }
+                }
+
 
                 // let settler_thread_message_tx = thread_message_tx.clone();
                 // let settler = SettlerThread {
@@ -61,12 +86,6 @@ fn main() {
                 // };
                 // let _settle_thread = std::thread::spawn(move || settler.worker());
 
-                let sync_thread_message_tx = thread_message_tx.clone();
-                let mut sync = SyncThread {
-                    stdout: sync_thread_message_tx,
-                    config: safe_bot_config.clone(),
-                };
-                let _sync_thread = std::thread::spawn(move || sync.worker());
 
 
             }
