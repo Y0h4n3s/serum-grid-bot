@@ -78,7 +78,7 @@ pub trait BotThread {
                 if let Ok(block_hash) = latest_block_hash {
                     println!("[?] Sending Transaction");
                     tx.sign(&[&config.fee_payer], block_hash);
-                    const SEND_RETRIES: usize = 3;
+                    const SEND_RETRIES: usize = 1;
                     const GET_STATUS_RETRIES: usize = 30;
                     let now = Instant::now();
                     'sending: for _ in 0..SEND_RETRIES {
