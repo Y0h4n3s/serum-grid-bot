@@ -89,6 +89,7 @@ use std::fmt::format;
 impl fmt::Display for Trader {
     fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
         let mut str = "".to_string();
+        str.push_str(&format!("[+] Status: {:?}\n", self.status));
         str.push_str(&format!("[+] BaseBalance: {} Ui: {}\n", self.base_balance, self.base_balance / (10 as u64).pow(self.base_token_info.decimals as u32)));
         str.push_str(&format!("[+] QuoteBalance: {} Ui: {}\n",  self.quote_balance, self.quote_balance / (10 as u64).pow(self.quote_token_info.decimals as u32)));
         str.push_str("[+] Grids\n");
@@ -96,6 +97,7 @@ impl fmt::Display for Trader {
             str.push_str(&format!("[ Price: {}, Status: {:?} ]\n", grid.price, grid.status));
 
         }
+
         fmt.write_str(&str).unwrap();
         Ok(())
     }

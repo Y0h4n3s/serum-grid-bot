@@ -89,7 +89,10 @@ impl BotThread for SyncThread {
             "market_address": trader.market_address.clone(),
             "owner": trader.owner.clone(),
         }, UpdateModifications::Document(doc! {
-                "$set": trader_document
+                "$set": {
+                    "base_balance": to_bson(&trader.base_balance).unwrap(),
+                    "quote_balance": to_bson(&trader.quote_balance).unwrap()
+                }
             }),
             None
         );
