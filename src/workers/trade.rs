@@ -387,7 +387,7 @@ impl BotThread for TraderThread {
                                                 // only covered for one strike TODO: find an efficient algorithm to detect reversals
                                                 if let Some(next_next_grid) = self.trader.grids.get(grid_index + 2) {
                                                     if next_next_grid.status == GridStatus::Violated && next_next_grid.order.is_some() && next_next_grid.order.as_ref().unwrap().side == Side::Bid {
-                                                        if price.sell > next_next_grid.price {
+                                                        if price.buy > next_grid.price {
                                                             continue
                                                         }
                                                     }
@@ -414,7 +414,12 @@ impl BotThread for TraderThread {
                                                     let quote_size_lots = base_size_lots * serum_market.pc_lot_size * grid_position.price;
 
                                                     if let Some(prev_grid) = self.trader.grids.get(grid_index - 1) {
-                                                        if next_grid.order.is_some() && prev_grid.order.is_some() && next_grid.order.as_ref().unwrap().side == prev_grid.order.as_ref().unwrap().side {
+                                                        if next_grid.order.is_some()
+                                                            && prev_grid.order.is_some()
+                                                            && next_grid.order.as_ref().unwrap().side == prev_grid.order.as_ref().unwrap().side
+                                                            && next_grid.status == GridStatus::AwaitingBuy
+                                                            && prev_grid.status == GridStatus::AwaitingBuy
+                                                        {
                                                             let new_order_ix = self.make_new_order_ix(serum_market, &self.trader, Side::Bid, grid_position.price, quote_size_lots);
                                                             ixs.push(new_order_ix);
                                                             buy_indexes.push(grid_index);
@@ -446,14 +451,17 @@ impl BotThread for TraderThread {
                                                 continue
                                             }
 
-                                        if let Some(next_next_grid) = self.trader.grids.get(grid_index - 2) {
-                                            if next_next_grid.status == GridStatus::Violated && next_next_grid.order.is_some() && next_next_grid.order.as_ref().unwrap().side == Side::Ask {
-                                                if price.buy < next_next_grid.price {
-                                                    continue
+
+                                        if let Some(next_grid) = self.trader.grids.get(grid_index  - 1) {
+
+                                            if let Some(next_next_grid) = self.trader.grids.get(grid_index - 2) {
+                                                if next_next_grid.status == GridStatus::Violated && next_next_grid.order.is_some() && next_next_grid.order.as_ref().unwrap().side == Side::Ask {
+                                                    if price.sell < next_grid.price {
+                                                        continue
+                                                    }
                                                 }
                                             }
-                                        }
-                                        if let Some(next_grid) = self.trader.grids.get(grid_index  - 1) {
+
                                             let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
                                             let base_size_lots = base_size / serum_market.coin_lot_size;
                                             if next_grid.status == GridStatus::Violated {
@@ -474,7 +482,11 @@ impl BotThread for TraderThread {
                                             }
                                             else {
                                                 if let Some(prev_grid) = self.trader.grids.get(grid_index + 1) {
-                                                    if next_grid.order.is_some() && prev_grid.order.is_some() && next_grid.order.as_ref().unwrap().side == prev_grid.order.as_ref().unwrap().side {
+                                                    if next_grid.order.is_some()
+                                                        && prev_grid.order.is_some()
+                                                        && next_grid.order.as_ref().unwrap().side == prev_grid.order.as_ref().unwrap().side
+                                                        && next_grid.status == GridStatus::AwaitingSell
+                                                        && prev_grid.status == GridStatus::AwaitingSell {
                                                         let new_order_ix = self.make_new_order_ix(serum_market, &self.trader, Side::Ask, grid_position.price, base_size_lots);
                                                         ixs.push(new_order_ix);
                                                         sell_indexes.push(grid_index);
