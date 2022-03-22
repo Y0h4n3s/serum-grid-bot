@@ -80,97 +80,99 @@ fn main() {
             //     config: safe_bot_config.clone(),
             // };
             // let _settle_thread = std::thread::spawn(move || settler.worker());
+
+
+
+
+            Err(_) => {}
         }
-        Err(_) => {}
     }
-}
-let logs_dir = Path::new("logs");
-if ! logs_dir.exists() {
-std::fs::create_dir(logs_dir).unwrap();
-}
-for received in thread_message_rx {
-match received.kind {
-ThreadMessageKind::Log(log) => {
-let logs_dir = match received.source {
-ThreadMessageSource::Trader => {
-logs_dir.to_str().unwrap().to_owned() + & * "/trader".to_owned()
-}
-ThreadMessageSource::Settler => {
-logs_dir.to_str().unwrap().to_owned() + & * "/settler".to_owned()
-}
-ThreadMessageSource::EventConsumer => {
-logs_dir.to_str().unwrap().to_owned() + & * "/event_consumer".to_owned()
-}
-ThreadMessageSource::Cleanup => {
-logs_dir.to_str().unwrap().to_owned() + & * "/cleanup".to_owned()
-}
-ThreadMessageSource::Sync => {
-logs_dir.to_str().unwrap().to_owned() + & * "/sync".to_owned()
-}
-};
-let logs_dir_path = Path::new( & logs_dir);
-if ! logs_dir_path.exists() {
-std::fs::create_dir(logs_dir_path).unwrap();
-}
-let log_file = get_log_file(log.level, logs_dir_path);
-let path = Path::new( &log_file);
-let mut file = OpenOptions::new()
-.append(true)
-.create(true)
-.open(path)
-.unwrap();
+    let logs_dir = Path::new("logs");
+    if !logs_dir.exists() {
+        std::fs::create_dir(logs_dir).unwrap();
+    }
+    for received in thread_message_rx {
+        match received.kind {
+            ThreadMessageKind::Log(log) => {
+                let logs_dir = match received.source {
+                    ThreadMessageSource::Trader => {
+                        logs_dir.to_str().unwrap().to_owned() + &*"/trader".to_owned()
+                    }
+                    ThreadMessageSource::Settler => {
+                        logs_dir.to_str().unwrap().to_owned() + &*"/settler".to_owned()
+                    }
+                    ThreadMessageSource::EventConsumer => {
+                        logs_dir.to_str().unwrap().to_owned() + &*"/event_consumer".to_owned()
+                    }
+                    ThreadMessageSource::Cleanup => {
+                        logs_dir.to_str().unwrap().to_owned() + &*"/cleanup".to_owned()
+                    }
+                    ThreadMessageSource::Sync => {
+                        logs_dir.to_str().unwrap().to_owned() + &*"/sync".to_owned()
+                    }
+                };
+                let logs_dir_path = Path::new(&logs_dir);
+                if !logs_dir_path.exists() {
+                    std::fs::create_dir(logs_dir_path).unwrap();
+                }
+                let log_file = get_log_file(log.level, logs_dir_path);
+                let path = Path::new(&log_file);
+                let mut file = OpenOptions::new()
+                    .append(true)
+                    .create(true)
+                    .open(path)
+                    .unwrap();
 
-let formatted_time = DateTime::< chrono::Local >::from(log.time);
-let mut compiled_message: String = "\n".to_string();
-let log_header = "=================================================  ".to_owned() + & * formatted_time.to_string() + &* "   ===============================================\n".to_owned();
-compiled_message.push_str( & log_header);
-compiled_message.push_str( &log.log);
-file.write(compiled_message.as_bytes()).expect("Error writing logs");
-}
-}
-}
+                let formatted_time = DateTime::<chrono::Local>::from(log.time);
+                let mut compiled_message: String = "\n".to_string();
+                let log_header = "=================================================  ".to_owned() + &*formatted_time.to_string() + &*"   ===============================================\n".to_owned();
+                compiled_message.push_str(&log_header);
+                compiled_message.push_str(&log.log);
+                file.write(compiled_message.as_bytes()).expect("Error writing logs");
+            }
+        }
+    }
 
-// let safe_bot_config = Arc::new(bot_config);
-// let (thread_message_tx, thread_message_rx) = std::sync::mpsc::channel::<ThreadMessage>();
-// let _trader_thread_message_tx = thread_message_tx.clone();
-// let trader = TraderThread {
-//     stdout: _trader_thread_message_tx,
-//     config: safe_bot_config.clone(),
-// };
-// let _trader_thread = std::thread::spawn(move || trader.worker());
+    // let safe_bot_config = Arc::new(bot_config);
+    // let (thread_message_tx, thread_message_rx) = std::sync::mpsc::channel::<ThreadMessage>();
+    // let _trader_thread_message_tx = thread_message_tx.clone();
+    // let trader = TraderThread {
+    //     stdout: _trader_thread_message_tx,
+    //     config: safe_bot_config.clone(),
+    // };
+    // let _trader_thread = std::thread::spawn(move || trader.worker());
 
-// let settler_thread_message_tx = thread_message_tx.clone();
-// let settler = SettlerThread {
-//     stdout: settler_thread_message_tx,
-//     config: safe_bot_config.clone(),
-// };
-// let _settle_thread = std::thread::spawn(move || settler.worker());
+    // let settler_thread_message_tx = thread_message_tx.clone();
+    // let settler = SettlerThread {
+    //     stdout: settler_thread_message_tx,
+    //     config: safe_bot_config.clone(),
+    // };
+    // let _settle_thread = std::thread::spawn(move || settler.worker());
 
-// let sync_thread_message_tx = thread_message_tx.clone();
-// let sync = SyncThread {
-//     stdout: sync_thread_message_tx,
-//     config: safe_bot_config.clone(),
-// };
-// let _sync_thread = std::thread::spawn(move || sync.worker());
-
-
-// let event_consumer_thread_message_tx = thread_message_tx.clone();
-// let event_consumer = EventConsumer {
-//     stdout: event_consumer_thread_message_tx,
-//     config: safe_bot_config.clone(),
-// };
-// let _event_consumer_thread = std::thread::spawn(move || event_consumer.worker());
-
-// let cleanup_thread_message_tx = thread_message_tx.clone();
-// let clean_up = CleanUpThread {
-//     stdout: cleanup_thread_message_tx,
-//     config: safe_bot_config.clone(),
-// };
-// let _cleanup_thread = std::thread::spawn(move || clean_up.worker());
+    // let sync_thread_message_tx = thread_message_tx.clone();
+    // let sync = SyncThread {
+    //     stdout: sync_thread_message_tx,
+    //     config: safe_bot_config.clone(),
+    // };
+    // let _sync_thread = std::thread::spawn(move || sync.worker());
 
 
+    // let event_consumer_thread_message_tx = thread_message_tx.clone();
+    // let event_consumer = EventConsumer {
+    //     stdout: event_consumer_thread_message_tx,
+    //     config: safe_bot_config.clone(),
+    // };
+    // let _event_consumer_thread = std::thread::spawn(move || event_consumer.worker());
 
-println!("Hello, world!");
+    // let cleanup_thread_message_tx = thread_message_tx.clone();
+    // let clean_up = CleanUpThread {
+    //     stdout: cleanup_thread_message_tx,
+    //     config: safe_bot_config.clone(),
+    // };
+    // let _cleanup_thread = std::thread::spawn(move || clean_up.worker());
+
+
+    println!("Hello, world!");
 }
 
 fn get_log_file(level: ThreadLogLevel, logs_dir: &Path) -> String {
