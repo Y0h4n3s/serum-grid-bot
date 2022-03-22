@@ -388,6 +388,7 @@ impl BotThread for TraderThread {
                                                 if let Some(next_next_grid) = self.trader.grids.get(grid_index + 2) {
                                                     if next_next_grid.status == GridStatus::Violated && next_next_grid.order.is_some() && next_next_grid.order.as_ref().unwrap().side == Side::Bid {
                                                         if price.buy > next_grid.price {
+                                                            println!("[?] Sell comes first skipping buy for now");
                                                             continue
                                                         }
                                                     }
@@ -433,7 +434,7 @@ impl BotThread for TraderThread {
 
                                                             })
                                                         } else {
-                                                            println!("[-] Unknowable anomaly");
+                                                            println!("[-] Next grid is still awaiting filling, skipping buy");
 
                                                         }
                                                     } else {
@@ -457,6 +458,8 @@ impl BotThread for TraderThread {
                                             if let Some(next_next_grid) = self.trader.grids.get(grid_index - 2) {
                                                 if next_next_grid.status == GridStatus::Violated && next_next_grid.order.is_some() && next_next_grid.order.as_ref().unwrap().side == Side::Ask {
                                                     if price.sell < next_grid.price {
+                                                        println!("[?] Buy comes first skipping sell for now");
+
                                                         continue
                                                     }
                                                 }
@@ -500,7 +503,7 @@ impl BotThread for TraderThread {
 
                                                         })
                                                     } else {
-                                                        println!("[-] Unknowable anomaly");
+                                                        println!("[-] Next grid is still awaiting filling, skipping sell");
                                                     }
                                                 } else {
                                                     println!("[-] Next grid is still awaiting filling, skipping sell");
