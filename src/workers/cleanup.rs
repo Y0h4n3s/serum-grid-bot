@@ -66,13 +66,13 @@ impl BotThread for CleanupThread {
     }
 
     fn get_name(&self) -> String {
-        "Sync".to_string()
+        "Cleanup".to_string()
     }
 
 
     fn compile_ixs(&mut self, connection: &RpcClient, serum_market: &Market, mongo_client: &MongoClient) -> Vec<Instruction> {
         let mut trader = self.get_updated_trader(mongo_client, &self.config.trader);
-        if trader.status != TraderStatus::Decommissioned || trader.status != TraderStatus::Stopped {
+        if trader.status != TraderStatus::Decommissioned && trader.status != TraderStatus::Stopped  {
             return vec![]
         }
         let mut ixs = vec![];
@@ -100,13 +100,24 @@ impl BotThread for CleanupThread {
             );
 
         if let Ok(open_orders) = open_orders_result {
-            for i in 0..min(open_orders.orders.len(), MAX_IXS) {
+            for mut i in 0..min(open_orders.orders.len(), MAX_IXS) {
                 let order = open_orders.orders.get(i).unwrap();
                 let grid_order = trader.grids.clone()
                     .clone()
                     .into_iter()
                     .find_position(|grid| grid.order.is_some() && grid.order.as_ref().unwrap().order_id == order.to_string());
                 if let Some((grid_index, go)) = grid_order {
+                    let match_ix1 = serum_dex::instruction::match_orders(
+                        &self.config.serum_program,
+                        &str_to_pubkey(&trader.market_address),
+                        &self.bytes_to_pubkey(&serum_market.req_q),
+                        &self.bytes_to_pubkey(&serum_market.bids),
+                        &self.bytes_to_pubkey(&serum_market.asks),
+                        &self.bytes_to_pubkey(&serum_market.event_q),
+                        &str_to_pubkey(&trader.base_trader_wallet),
+                        &str_to_pubkey(&trader.quote_trader_wallet),
+                        5
+                    ).unwrap();
                     let cancel_ix = serum_dex::instruction::cancel_order(
                         &self.config.serum_program,
                         &str_to_pubkey(&trader.market_address),
@@ -118,7 +129,11 @@ impl BotThread for CleanupThread {
                         go.order.unwrap().side,
                         *order
                     ).unwrap();
+
+                    ixs.push(match_ix);
                     ixs.push(cancel_ix);
+                    ixs.push(match_ix.clone());
+                    i += 2;
                 }
             }
         }
