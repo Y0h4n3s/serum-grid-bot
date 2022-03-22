@@ -29,7 +29,7 @@ use crate::mongodb::client::MongoClient;
 use crate::mongodb::models::{GridPosition, GridStatus, Order as OrderDb, Trader};
 use crate::serum::state::Order;
 use crate::{str_to_pubkey, TraderStatus};
-use crate::workers::base::{BotConfig, BotThread};
+use crate::workers::base::{BotConfig, BotThread, MAX_IXS};
 use crate::workers::error::TradeBotResult;
 use crate::workers::message::{ThreadMessage, ThreadMessageCompiler, ThreadMessageSource};
 
@@ -310,7 +310,7 @@ impl BotThread for TraderThread {
                     return ixs
                 }
 
-                for mut i in 0..min(idleGrids.len(), MAX_NEW_ORDER_IXS) {
+                for mut i in 0..min(idleGrids.len(), MAX_IXS) {
                     let grid_position = idleGrids.get(i).unwrap();
                     let grid_order = self.trader.grids.clone()
                         .clone()

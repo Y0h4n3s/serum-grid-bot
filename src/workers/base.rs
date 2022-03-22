@@ -35,6 +35,7 @@ use crate::mongodb::models::Trader;
 use crate::serum::state::{Order};
 use crate::str_to_pubkey;
 use crate::workers::message::ThreadMessageSource;
+pub const MAX_IXS: usize = 10;
 
 pub trait BotThread {
     fn worker(&mut self) {

@@ -1,4 +1,5 @@
 use std::cell::RefCell;
+use std::cmp::min;
 use std::rc::Rc;
 use std::sync::Arc;
 use std::sync::mpsc::Sender;
@@ -27,7 +28,7 @@ use solana_sdk::signature::{Signature, Signer};
 use crate::{MongoClient, str_to_pubkey, TraderStatus};
 use crate::mongodb::models::Trader;
 use crate::serum::state::Order;
-use crate::workers::base::{BotConfig, BotThread};
+use crate::workers::base::{BotConfig, BotThread, MAX_IXS};
 use crate::workers::message::{ThreadMessage, ThreadMessageCompiler, ThreadMessageSource};
 
 pub struct CleanupThread {
@@ -99,7 +100,8 @@ impl BotThread for CleanupThread {
             );
 
         if let Ok(open_orders) = open_orders_result {
-            for order in open_orders.orders {
+            for i in 0..min(open_orders.orders.len(), MAX_IXS) {
+                let order = open_orders.orders.get(i).unwrap();
                 let grid_order = trader.grids.clone()
                     .clone()
                     .into_iter()
@@ -114,7 +116,7 @@ impl BotThread for CleanupThread {
                         &self.config.fee_payer.pubkey(),
                         &self.bytes_to_pubkey(&serum_market.event_q),
                         go.order.unwrap().side,
-                        order
+                        *order
                     ).unwrap();
                     ixs.push(cancel_ix);
                 }
