@@ -79,8 +79,9 @@ pub trait BotThread {
                     println!("[?] Sending Transaction");
                     tx.sign(&[&config.fee_payer], block_hash);
                     const SEND_RETRIES: usize = 1;
-                    const GET_STATUS_RETRIES: usize = 30;
+                    const GET_STATUS_RETRIES: usize = 20;
                     let now = Instant::now();
+                    let mut processed_confirmation = false;
                     'sending: for _ in 0..SEND_RETRIES {
                         let sig = connection.send_transaction(&tx);
                         if let Ok(signature) = sig {
@@ -95,7 +96,7 @@ pub trait BotThread {
 
                             'confirmation: for status_retry in 0..usize::MAX {
                                 let result: Result<Signature, Option<TransactionError>> =
-                                    match connection.get_signature_status_with_commitment(&signature, CommitmentConfig::confirmed()).unwrap() {
+                                    match connection.get_signature_status_with_commitment(&signature, if processed_confirmation {CommitmentConfig::confirmed()} else {CommitmentConfig::processed()}).unwrap() {
                                     Some(Ok(_)) => Ok(signature),
                                     Some(Err(e)) => Err(Some(e.into())),
                                     None => {
@@ -105,7 +106,7 @@ pub trait BotThread {
                                         {
                                             // Block hash is not found by some reason
                                             break 'sending;
-                                        } else if status_retry < GET_STATUS_RETRIES
+                                        } else if status_retry < GET_STATUS_RETRIES | processed_confirmation
                                         {
                                             // Retry in a second
                                             sleep(Duration::from_millis(1000));
@@ -118,9 +119,16 @@ pub trait BotThread {
                                 };
                                 match result {
                                     Ok(signature) => {
-                                        println!("[+] Transaction Successful: {:?}", sig);
-                                        self.cleanup(&connection, &serum_market, &mongo_client);
-                                        break 'sending
+                                        if processed_confirmation {
+                                            println!("[+] Transaction Successful: {:?}", sig);
+                                            self.cleanup(&connection, &serum_market, &mongo_client);
+                                            break 'sending
+                                        } else {
+                                            processed_confirmation = true;
+                                            println!("[+] Transaction processed, Waiting for confirmed commitment");
+                                            continue
+                                        }
+
                                     }
                                     Err(None) => {
                                         eprintln!("[-] Failed to confirm transaction retrying...");
