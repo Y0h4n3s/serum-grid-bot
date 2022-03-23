@@ -319,7 +319,7 @@ impl BotThread for TraderThread {
                         .find_position(|grid| grid.price == grid_position.price);
                     match grid_position.status {
                         GridStatus::Idle => {
-                            let base_size = (self.trader.amount_per_grid / grid_position.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
+                            let base_size = self.trader.amount_per_grid;
                             let base_size_lots = base_size / serum_market.coin_lot_size;
                             let quote_size_lots = base_size_lots * serum_market.pc_lot_size * grid_position.price;
 
@@ -393,7 +393,7 @@ impl BotThread for TraderThread {
                                                         }
                                                     }
                                                 }
-                                                let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
+                                                let base_size = self.trader.amount_per_grid;
                                                 let base_size_lots = base_size / serum_market.coin_lot_size;
                                                 let quote_size_lots = base_size_lots * serum_market.pc_lot_size * next_grid.price;
                                                 if next_grid.status == GridStatus::Violated {
@@ -465,7 +465,7 @@ impl BotThread for TraderThread {
                                                 }
                                             }
 
-                                            let base_size = (self.trader.amount_per_grid / next_grid.price) * serum_market.coin_lot_size / serum_market.pc_lot_size;
+                                            let base_size = self.trader.amount_per_grid;
                                             let base_size_lots = base_size / serum_market.coin_lot_size;
                                             if next_grid.status == GridStatus::Violated {
                                                 // place sell order for previous closed order
