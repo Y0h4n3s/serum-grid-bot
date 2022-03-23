@@ -106,7 +106,7 @@ pub trait BotThread {
                                         {
                                             // Block hash is not found by some reason
                                             break 'sending;
-                                        } else if status_retry < GET_STATUS_RETRIES | processed_confirmation
+                                        } else if status_retry < GET_STATUS_RETRIES || processed_confirmation
                                         {
                                             // Retry in a second
                                             sleep(Duration::from_millis(1000));
